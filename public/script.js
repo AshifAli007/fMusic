@@ -40,8 +40,10 @@ $(".speeddown").click(function(){
 function timeUpdate(obj){
     var songName = $(obj).attr("name");
     var span = $("span[name='"+songName+"'].currentTime");
+    var rangeDuration = $("input[type='range'][name='"+songName+"'].duration");
     var seconds = Math.floor(obj.currentTime);
     var minutes = Math.floor(seconds/60);
+    rangeDuration[0].value = seconds;
     seconds = seconds%60;
     if(seconds<10){
         var time = minutes+ ":0" + seconds;
@@ -50,6 +52,7 @@ function timeUpdate(obj){
     }
     
     $(span).html(time);
+
 }
 
 var songsRange = $("input[type='range'].duration");
