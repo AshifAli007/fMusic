@@ -8,7 +8,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 app.use(express.static("public"));
-
+console.log("hii styles");
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, path.join(__dirname, '/uploads/'));
