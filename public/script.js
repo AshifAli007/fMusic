@@ -88,7 +88,7 @@ function myloop(){
     },t);
 }
 myloop();
-
+console.log("Music BAr");
 function getSong(obj){
     var songName = $(obj).attr("name");
     var song = $('audio[name="'+songName+'"]');
