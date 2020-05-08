@@ -1,3 +1,403 @@
 body{
+    background-color:white;
+}
+img{
+    position: fixed;
+    left: 0px;
+    top: 5px;
+    margin-left: -70px;
+}
+.btn-outline-light{
+    float: right;
+    position: relative;
+    right: 65px;
+    top: 30px;
+    
+    
+}
+div.mycontainer{
+    width: 100vw;
+    height: 50vw;
     background-color: aquamarine;
 }
+div.mynav{
+    position: absolute;
+    display: inline-block;
+    width: 100vw;
+}
+div.image{
+    width: 100vw;
+    height: 85%;
+    background-color:burlywood;
+    padding: 300px;
+}
+div.controls{
+    display: inline-block;
+    background-color: black;
+    width: 100vw;
+    height: 15%;
+}
+div.duration{
+    width: 95%;
+    height: 50%;
+    /* background-color: rgb(29, 191, 197); */
+    float: left;
+}
+div.volume{
+    display: inline-block;
+    width: 5%;
+    height: 50%;
+    background-color: chocolate;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////// */
+
+/* 
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+body {
+  --val: 50;
+  --pos: calc(1.25em + var(--val) * (17.5em) / 100);
+  grid-template: 6.5em/ 20em;
+  place-content: center;
+  margin: 0;
+  height: 100vh;
+  background-blend-mode: overlay;
+}
+
+input[type="range"] {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0 auto;
+  margin: -0.5em -2.75em;
+  padding: 0.5em 2.75em;
+  width: 100%;
+  border-radius: 0.75em;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"], input[type="range"]::-webkit-slider-thumb, input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  height: 1em;
+  border-radius: 1em;
+  box-shadow: 0 1px #4e4f51, inset 0 0 0 0.125em #000;
+  background: linear-gradient(#050505, #2d2e30 70%, #171717);
+}
+.js input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(#105adf 1px, rgba(16, 90, 223, 0.01) 2px, rgba(16, 90, 223, 0.01) calc(100% - 2px), #105adf calc(100% - 1px)) 0/var(--pos) no-repeat, linear-gradient(90deg, cyan var(--pos), transparent 0), linear-gradient(#050505, #2d2e30 70%, #171717);
+}
+input[type="range"]::-moz-range-track {
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  height: 1em;
+  border-radius: 1em;
+  box-shadow: 0 1px #4e4f51, inset 0 0 0 0.125em #000;
+  background: linear-gradient(#050505, #2d2e30 70%, #171717);
+}
+.js input[type="range"]::-moz-range-track {
+  background: linear-gradient(#105adf 1px, rgba(16, 90, 223, 0.01) 2px, rgba(16, 90, 223, 0.01) calc(100% - 2px), #105adf calc(100% - 1px)) 0/var(--pos) no-repeat, linear-gradient(90deg, cyan var(--pos), transparent 0), linear-gradient(#050505, #2d2e30 70%, #171717);
+}
+input[type="range"]::-ms-track {
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  height: 1em;
+  border-radius: 1em;
+  box-shadow: 0 1px #4e4f51, inset 0 0 0 0.125em #000;
+  background: linear-gradient(#050505, #2d2e30 70%, #171717);
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  border-radius: 1em;
+  box-shadow: inset 0 0 0 1px #000;
+  background: linear-gradient(#105adf 1px, rgba(16, 90, 223, 0.01) 2px, rgba(16, 90, 223, 0.01) calc(100% - 2px), #105adf calc(100% - 1px)) cyan;
+}
+input[type="range"]::-webkit-slider-thumb {
+  margin-top: -0.75em;
+  box-sizing: border-box;
+  border: solid 1px #74787b;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  box-shadow: 0 0.25em 0.25em #070709, 0 0.125em 0.375em #070709;
+  background: radial-gradient(circle at 25% 32%, #43474a, #191a1c);
+  cursor: resize-ew;
+}
+input[type="range"]::-moz-range-thumb {
+  box-sizing: border-box;
+  border: solid 1px #74787b;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  box-shadow: 0 0.25em 0.25em #070709, 0 0.125em 0.375em #070709;
+  background: radial-gradient(circle at 25% 32%, #43474a, #191a1c);
+  cursor: resize-ew;
+}
+input[type="range"]::-ms-thumb {
+  margin-top: 0;
+  box-sizing: border-box;
+  border: solid 1px #74787b;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  box-shadow: 0 0.25em 0.25em #070709, 0 0.125em 0.375em #070709;
+  background: radial-gradient(circle at 25% 32%, #43474a, #191a1c);
+  cursor: resize-ew;
+}
+input[type="range"]:focus {
+  outline: solid 0 transparent;
+  background: rgba(51, 51, 51, 0.2);
+}
+input[type="range"]:focus + .glow {
+  opacity: 1;
+  animation: glow 0.75s ease-in infinite alternate;
+}
+
+.glow {
+  display: grid;
+  place-self: center start;
+  border: solid 0.5em rgba(137, 221, 255, 0.35);
+  transform: translate(calc(var(--pos) - 50%));
+  opacity: 0;
+  pointer-events: none;
+}
+.glow, .glow::before, .glow::after {
+  grid-column: 1;
+  grid-row: 1;
+  width: 5.5em;
+  height: 5.5em;
+  border-radius: 50%;
+}
+.glow::before, .glow::after {
+  box-shadow: inset 0 0 3px 2px #1148b1, inset 0 0 0.75em 3px #89ddff, inset 0 0 0.75em 3px #89ddff, inset 0 0 0.75em 3px #89ddff;
+  animation: inherit;
+  animation-name: fade;
+  animation-delay: -0.25s;
+  content: "";
+}
+.glow::after {
+  transform: scale(0.7272727273);
+  animation-delay: -0.5s;
+}
+
+@keyframes glow {
+  0% {
+    border-color: rgba(137, 221, 255, 0);
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+} */
+
+
+/* ////////////////////////////////nnnnnnew 1/////////////////////////////////////////// */
+
+#btn--yp {
+  box-sizing: content-box;
+  position: fixed;
+  z-index: 9;
+  bottom: 1em;
+  right: 1em;
+  border: solid 1em transparent;
+  width: 4.625em;
+  height: 3.25em;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/icon-yp.svg) 50%/cover content-box;
+  font: 16px/ 1.25 trebuchet ms, sans-serif;
+  text-indent: 200vw;
+  text-shadow: none;
+  filter: grayscale(1) drop-shadow(0 0 1px #e8e0e0);
+  transition: .5s;
+  white-space: nowrap;
+}
+#btn--yp:before {
+  box-sizing: inherit;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  margin: 1em -.5em;
+  padding: .5em;
+  width: 100%;
+  border-radius: 5px;
+  background: #e8e0e0;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0vw;
+  white-space: normal;
+  animation: float 1s ease-in-out infinite alternate;
+  content: attr(data-txt);
+}
+#btn--yp:hover, #btn--yp:focus {
+  outline: none;
+  filter: grayscale(0) drop-shadow(0 0 1px crimson);
+}
+
+@keyframes float {
+  to {
+    transform: translateY(0.75em);
+  }
+}
+* {
+  font: inherit;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(rgba(73, 88, 107, 0.85), rgba(9, 21, 33, 0.75)), url(https://i.stack.imgur.com/PEnJm.png), radial-gradient(rgba(73, 88, 107, 0.25), rgba(9, 21, 33, 0.25));
+  background-blend-mode: multiply;
+}
+
+form {
+  align-items: center;
+  font: 600 0.475em/1.75em arial, sans-serif;
+  /* level things */
+}
+
+[type='range'] {
+  box-sizing: border-box;
+  margin-right: 1em;
+  width: 98%;
+  padding-left: 2%;
+  height: 5.25em;
+  background: none;
+  /* fix Chrome white */
+  cursor: pointer;
+  /* track styles */
+  /* fill styles (Edge fallback only) */
+  /* thumb styles */
+  /* what we want hidden */
+}
+[type='range']::-webkit-slider-runnable-track, [type='range']::-webkit-slider-thumb, [type='range'] {
+  -webkit-appearance: none;
+}
+[type='range']::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  padding: 0.7em 0;
+  width: 32em;
+  height: 1.75em;
+  border-radius: 0.875em;
+  box-shadow: inset 0 -1px 1px #9daabb, inset 0 1px 0.125em #0f1110;
+  background: linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+}
+.js [type='range']::-webkit-slider-runnable-track {
+  background: linear-gradient(90deg, #ffe14c, #ff4c8a calc(var(--val)*0.7%), transparent 0) 50%/ 98% 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 98% 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+}
+[type='range']::-moz-range-track {
+  box-sizing: border-box;
+  padding: 0.7em 0;
+  width: 32em;
+  height: 1.75em;
+  border-radius: 0.875em;
+  box-shadow: inset 0 -1px 1px #9daabb, inset 0 1px 0.125em #0f1110;
+  background: linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+}
+.js [type='range']::-moz-range-track {
+  background: linear-gradient(90deg, #ffe14c, #ff4c8a calc(var(--val)*1%), transparent 0) 50%/ 30.6em 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+}
+[type='range']::-ms-track {
+  box-sizing: border-box;
+  padding: 0.7em 0;
+  width: 32em;
+  height: 1.75em;
+  border-radius: 0.875em;
+  box-shadow: inset 0 -1px 1px #9daabb, inset 0 1px 0.125em #0f1110;
+  background: linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+  border: none;
+  /* remove black border */
+  color: transparent;
+  /* remove ticks */
+  background: linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat;
+}
+.js [type='range']::-ms-track {
+  background: linear-gradient(90deg, #ffe14c, #ff4c8a calc(var(--val)*1%), transparent 0) 50%/ 30.6em 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+}
+[type='range']::-ms-fill-lower {
+  height: 0.175em;
+  background: linear-gradient(90deg, transparent 0.875em, #ffe14c 0, #ff4c8a);
+}
+[type='range']::-webkit-slider-thumb {
+  /* to fix Chrome weird shit */
+  margin-top: -0.7875em;
+  box-sizing: border-box;
+  border: solid 1px rgba(238, 238, 238, 0.2);
+  width: 1.75em;
+  height: 1.75em;
+  border-radius: 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2), 0 3px 3px rgba(0, 0, 0, 0.2), 0 4px 4px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2), 0 7px 7px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.2), 0 9px 9px rgba(0, 0, 0, 0.2);
+  background: conic-gradient(#8a8a8a, #e0e0e0, #909090, #f1f2f1, #949392, #cfcfcf, #8a8a8a) border-box;
+  background-color: #949392;
+  /* fallback */
+}
+[type='range']::-moz-range-thumb {
+  box-sizing: border-box;
+  border: solid 1px rgba(238, 238, 238, 0.2);
+  width: 1.75em;
+  height: 1.75em;
+  border-radius: 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2), 0 3px 3px rgba(0, 0, 0, 0.2), 0 4px 4px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2), 0 7px 7px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.2), 0 9px 9px rgba(0, 0, 0, 0.2);
+  background: conic-gradient(#8a8a8a, #e0e0e0, #909090, #f1f2f1, #949392, #cfcfcf, #8a8a8a) border-box;
+  background-color: #949392;
+  /* fallback */
+  		/* Firefox-only, it won't work in IE 
+         and it's messed up in Chrome */
+  cursor: ew-resize;
+}
+[type='range']::-ms-thumb {
+  /* -webkit-thumb styles get applied needlessly
+   * and they break stuff that was working fine, 
+   * so we need to fix that mess */
+  margin-top: 0;
+  box-sizing: border-box;
+  border: solid 1px rgba(238, 238, 238, 0.2);
+  width: 1.75em;
+  height: 1.75em;
+  border-radius: 50%;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2), 0 3px 3px rgba(0, 0, 0, 0.2), 0 4px 4px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2), 0 7px 7px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.2), 0 9px 9px rgba(0, 0, 0, 0.2);
+  background: conic-gradient(#8a8a8a, #e0e0e0, #909090, #f1f2f1, #949392, #cfcfcf, #8a8a8a) border-box;
+  background-color: #949392;
+  /* fallback */
+  background: radial-gradient(closest-side, #aaa, transparent) 50% -0.875em/ 50% 100% repeat-y, radial-gradient(closest-side, #aaa, transparent) -0.875em/ 100% 50% repeat-x #eee;
+}
+[type='range']::-ms-tooltip {
+  display: none;
+}
+html:not(.js) [type='range'] + output {
+  display: none;
+}
+[type='range']:focus {
+  outline: none;
+}
+[type='range']:focus, [type='range']:focus + output {
+  filter: drop-shadow(0 0 0.5em rgba(0, 255, 255, 0.7));
+}
+[type='range'] + output {
+  width: 5em;
+  height: 1.75em;
+  border-radius: 0.875em;
+  box-shadow: inset 0 -1px 1px #9daabb, inset 0 1px 0.125em #0f1110;
+  background: linear-gradient(to right top, #474747, #202020);
+  color: #c4c4c4;
+  text-align: center;
+}
+[type='range'] + output:after {
+  content: "%";
+}
+
