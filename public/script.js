@@ -36,23 +36,7 @@ $(".speeddown").click(function(){
         song[0].playbackRate = 0.1;
     } 
 });
-function timeUpdate(obj){
-    var songName = $(obj).attr("name");
-    var span = $("span[name='"+songName+"'].currentTime");
-    var rangeDuration = $("input[type='range'][name='"+songName+"'].duration");
-    var seconds = Math.floor(obj.currentTime);
-    var minutes = Math.floor(seconds/60);
-    rangeDuration[0].value = seconds;
-    seconds = seconds%60;
-    if(seconds<10){
-        var time = minutes+ ":0" + seconds;
-    }else{
-        var time = minutes+ ":"+seconds;
-    }
-    
-    $(span).html(time);
 
-}
 
 var songsRange = $("input[type='range'].duration");
 
@@ -88,7 +72,6 @@ function myloop(){
     },t);
 }
 myloop();
-console.log("Music BAr");
 function getSong(obj){
     var songName = $(obj).attr("name");
     var song = $('audio[name="'+songName+'"]');
@@ -136,3 +119,38 @@ _R.forEach(function(obj){
     obj.addEventListener('input', update, false);
     obj.addEventListener('change', update, false);
 });
+
+function timeUpdate(obj){
+    var songName = $(obj).attr("name");
+    var span = $("span[name='"+songName+"'].currentTime");
+    var rangeDuration = $("input[type='range'][name='"+songName+"'].duration");
+    var seconds = Math.floor(obj.currentTime);
+    var minutes = Math.floor(seconds/60);
+    rangeDuration[0].value = seconds;
+    seconds = seconds%60;
+    if(seconds<10){
+        var time = minutes+ ":0" + seconds;
+    }else{
+        var time = minutes+ ":"+seconds;
+    }
+    
+
+    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"]'), 
+			_F = document.querySelector('form[name="'+songName+'"]'); 
+    let newval = +_Rval.value;
+    let val = newval;
+    _F.style.setProperty('--val', val);
+
+
+
+
+
+
+
+
+
+
+
+    $(span).html(time);
+
+}
