@@ -94,26 +94,15 @@ function getSong(obj){
     var song = $('audio[name="'+songName+'"]');
     return song;
 }
-
-
-///////////////////////////////////////////////////////
-
 function update(e) {
 	const _t = e.target;
 	document.body.style.setProperty('--val', `${+_t.value}`)
 };
-
 document.documentElement.classList.add('js');
-
 addEventListener('change', update, false);
 addEventListener('input', update, false);
-
-
-///////////////////////////////////////////////////////
-
 const _R = document.querySelectorAll('#r'), 
 			_F = document.querySelectorAll('form');
-			// _O = document.querySelectorAll('output[for=r]');
 
 
 function update() {
@@ -129,9 +118,7 @@ function update() {
 		// _O.textContent = val;
 	// }
 };
-
 document.documentElement.classList.add('js');
-
 _R.forEach(function(obj){
     obj.addEventListener('input', update, false);
     obj.addEventListener('change', update, false);
