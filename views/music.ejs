@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="style1.css">
+
 </head>
 <body>
 
@@ -41,15 +42,14 @@
                             <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
                         </div>
                         <div class="volume">
-                            <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5" name="<%= music.file.originalname %>">
+                            <input  type="range" class="volume" min="0" max="1" step="0.01" value="0.5" name="<%= music.file.originalname %>" orient="vertical">
                         </div>
-                        <div class="play">
-                            <button class="play" name="<%= music.file.originalname %>">Play</button>
-                            <button class="pause" name="<%= music.file.originalname %>">Pause</button>
+                        <div class="controlbuttons">
                             <button class="forward" name="<%= music.file.originalname %>">+</button>
                             <button class="backward" name="<%= music.file.originalname %>">-</button>
                             <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
                             <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
+                            <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>
                         </div>
                 </div>
         </div>
