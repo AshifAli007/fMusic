@@ -80,23 +80,11 @@ function getSong(obj){
     var song = $('audio[name="'+songName+'"]');
     return song;
 }
-<<<<<<< HEAD
-function update(e) {
-	const _t = e.target;
-	document.body.style.setProperty('--val', `${+_t.value}`)
-};
-document.documentElement.classList.add('js');
-addEventListener('change', update, false);
-addEventListener('input', update, false);
-const _R = document.querySelectorAll('#r'), 
-			_F = document.querySelectorAll('form');
-=======
 
 document.documentElement.classList.add('js');
 addEventListener('change', update, false);
 addEventListener('input', update, false);
 const _R = document.querySelectorAll('#r');
->>>>>>> MusicBar
 
 
 function update() {
