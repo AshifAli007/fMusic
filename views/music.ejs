@@ -41,12 +41,18 @@
                             
                         </div>
                         <div class="controlbuttons">
-                            <span  class="currentTime" name="<%= music.file.originalname %>">0:00</span>
-                            <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
+                            <div class="time">
+                                <span  class="currentTime" name="<%= music.file.originalname %>">0:00</span>
+                                <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
+                            </div>
+                            
                             <!-- <button class="forward" name="<%= music.file.originalname %>">+</button>
                             <button class="backward" name="<%= music.file.originalname %>">-</button> -->
-                            <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
-                            <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
+                            <div class="playback">
+                                <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
+                                <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
+                            </div>
+                            
                             <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>
                             <div class="volume">
                                 <form style="--val: 0.7" class="volume" name="<%= music.file.originalname %>">
