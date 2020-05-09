@@ -38,7 +38,6 @@ app.get("/music",function(req,res){
     });
     
 });
-console.log("hii There");
 app.post('/music', upload.single('myfile'), (req, res) => {
     var music = new Playlist({
         file : req.file

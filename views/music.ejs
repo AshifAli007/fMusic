@@ -19,9 +19,10 @@
   
           <button type="button" class="btn btn-outline-light"><a href="/add">Add</a></button>
     </div>
-        
+    <% var i = 0; %>
     <% Playlist.forEach(function(music){ %>
-        <div class="mycontainer">
+        <% i++; %>
+        <div class="mycontainer" id="song<%= i %>">
                 <div class="image">
                     <h3><%= music.file.originalname %></h3>
                     <audio name="<%= music.file.originalname %>" 
@@ -30,6 +31,18 @@
                         <source src="uploads/<%= music.file.filename %>" type="audio/mpeg">
                             
                     </audio>
+
+                   <div class="slideshow">
+                    <div>
+                        <img src="http://farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg">
+                      </div>
+                      <div>
+                        <img src="http://farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg">
+                      </div>
+                      <div>
+                        Pretty cool eh? This slide is proof the content can be anything.
+                      </div>
+                   </div>
                 </div>
                 <div class="controls">
                         <div class="duration">

@@ -1,7 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
 body{
     background-color:white;
 }
-img{
+img.d-inline-block{
     position: fixed;
     left: 0px;
     top: 5px;
@@ -281,11 +284,25 @@ html:not(.js) [type='range'] + output {
   box-shadow: 0 0 0 #888;
 }
 
-
-
-
-
-
-
-
 /* css for ghost button ends here */
+
+/* css for slideshow starts here */
+.slideshow {
+  margin: 80px auto;
+  position: relative;
+  width: 240px;
+  height: 240px;
+  padding: 10px;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
+}
+
+.slideshow > div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+/* css for slideshow ends here */
+
+
