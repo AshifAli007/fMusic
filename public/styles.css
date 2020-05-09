@@ -27,7 +27,7 @@ div.mynav{
 }
 div.image{
     width: 100vw;
-    height: 85%;
+    height: 80%;
     background-color:burlywood;
     padding: 300px;
 }
@@ -35,223 +35,38 @@ div.controls{
     display: inline-block;
     background-color: black;
     width: 100vw;
-    height: 15%;
+    height: 20%;
 }
 div.duration{
-    width: 95%;
-    height: 50%;
+    width: 100%;
+    height: 30%;
     /* background-color: rgb(29, 191, 197); */
     float: left;
 }
 div.volume{
     display: inline-block;
-    width: 5%;
-    height: 50%;
-    background-color: chocolate;
+}
+div.controlbuttons{
+    display: inline-block;
+    width: 100%;
+    height: 70%;
+    background-color: antiquewhite;
+}
+div.playback{
+  display: inline-block;
+}
+div.time{
+  position: relative;
+    left: 16px;
+    top: 2px; 
+    font-family: fantasy;
 }
 
-/* ///////////////////////////////////////////////////////////////////////////// */
 
-/* 
-
-* {
-  margin: 0;
-  font: inherit;
-}
-
-body {
-  --val: 50;
-  --pos: calc(1.25em + var(--val) * (17.5em) / 100);
-  grid-template: 6.5em/ 20em;
-  place-content: center;
-  margin: 0;
-  height: 100vh;
-  background-blend-mode: overlay;
-}
-
-input[type="range"] {
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0 auto;
-  margin: -0.5em -2.75em;
-  padding: 0.5em 2.75em;
-  width: 100%;
-  border-radius: 0.75em;
-  background: transparent;
-  cursor: pointer;
-}
-input[type="range"], input[type="range"]::-webkit-slider-thumb, input[type="range"]::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-}
-input[type="range"]::-webkit-slider-runnable-track {
-  box-sizing: border-box;
-  border: none;
-  width: 100%;
-  height: 1em;
-  border-radius: 1em;
-  box-shadow: 0 1px #4e4f51, inset 0 0 0 0.125em #000;
-  background: linear-gradient(#050505, #2d2e30 70%, #171717);
-}
-.js input[type="range"]::-webkit-slider-runnable-track {
-  background: linear-gradient(#105adf 1px, rgba(16, 90, 223, 0.01) 2px, rgba(16, 90, 223, 0.01) calc(100% - 2px), #105adf calc(100% - 1px)) 0/var(--pos) no-repeat, linear-gradient(90deg, cyan var(--pos), transparent 0), linear-gradient(#050505, #2d2e30 70%, #171717);
-}
-input[type="range"]::-moz-range-track {
-  box-sizing: border-box;
-  border: none;
-  width: 100%;
-  height: 1em;
-  border-radius: 1em;
-  box-shadow: 0 1px #4e4f51, inset 0 0 0 0.125em #000;
-  background: linear-gradient(#050505, #2d2e30 70%, #171717);
-}
-.js input[type="range"]::-moz-range-track {
-  background: linear-gradient(#105adf 1px, rgba(16, 90, 223, 0.01) 2px, rgba(16, 90, 223, 0.01) calc(100% - 2px), #105adf calc(100% - 1px)) 0/var(--pos) no-repeat, linear-gradient(90deg, cyan var(--pos), transparent 0), linear-gradient(#050505, #2d2e30 70%, #171717);
-}
-input[type="range"]::-ms-track {
-  box-sizing: border-box;
-  border: none;
-  width: 100%;
-  height: 1em;
-  border-radius: 1em;
-  box-shadow: 0 1px #4e4f51, inset 0 0 0 0.125em #000;
-  background: linear-gradient(#050505, #2d2e30 70%, #171717);
-  color: transparent;
-}
-input[type="range"]::-ms-fill-lower {
-  border-radius: 1em;
-  box-shadow: inset 0 0 0 1px #000;
-  background: linear-gradient(#105adf 1px, rgba(16, 90, 223, 0.01) 2px, rgba(16, 90, 223, 0.01) calc(100% - 2px), #105adf calc(100% - 1px)) cyan;
-}
-input[type="range"]::-webkit-slider-thumb {
-  margin-top: -0.75em;
-  box-sizing: border-box;
-  border: solid 1px #74787b;
-  width: 2.5em;
-  height: 2.5em;
-  border-radius: 50%;
-  box-shadow: 0 0.25em 0.25em #070709, 0 0.125em 0.375em #070709;
-  background: radial-gradient(circle at 25% 32%, #43474a, #191a1c);
-  cursor: resize-ew;
-}
-input[type="range"]::-moz-range-thumb {
-  box-sizing: border-box;
-  border: solid 1px #74787b;
-  width: 2.5em;
-  height: 2.5em;
-  border-radius: 50%;
-  box-shadow: 0 0.25em 0.25em #070709, 0 0.125em 0.375em #070709;
-  background: radial-gradient(circle at 25% 32%, #43474a, #191a1c);
-  cursor: resize-ew;
-}
-input[type="range"]::-ms-thumb {
-  margin-top: 0;
-  box-sizing: border-box;
-  border: solid 1px #74787b;
-  width: 2.5em;
-  height: 2.5em;
-  border-radius: 50%;
-  box-shadow: 0 0.25em 0.25em #070709, 0 0.125em 0.375em #070709;
-  background: radial-gradient(circle at 25% 32%, #43474a, #191a1c);
-  cursor: resize-ew;
-}
-input[type="range"]:focus {
-  outline: solid 0 transparent;
-  background: rgba(51, 51, 51, 0.2);
-}
-input[type="range"]:focus + .glow {
-  opacity: 1;
-  animation: glow 0.75s ease-in infinite alternate;
-}
-
-.glow {
-  display: grid;
-  place-self: center start;
-  border: solid 0.5em rgba(137, 221, 255, 0.35);
-  transform: translate(calc(var(--pos) - 50%));
-  opacity: 0;
-  pointer-events: none;
-}
-.glow, .glow::before, .glow::after {
-  grid-column: 1;
-  grid-row: 1;
-  width: 5.5em;
-  height: 5.5em;
-  border-radius: 50%;
-}
-.glow::before, .glow::after {
-  box-shadow: inset 0 0 3px 2px #1148b1, inset 0 0 0.75em 3px #89ddff, inset 0 0 0.75em 3px #89ddff, inset 0 0 0.75em 3px #89ddff;
-  animation: inherit;
-  animation-name: fade;
-  animation-delay: -0.25s;
-  content: "";
-}
-.glow::after {
-  transform: scale(0.7272727273);
-  animation-delay: -0.5s;
-}
-
-@keyframes glow {
-  0% {
-    border-color: rgba(137, 221, 255, 0);
-  }
-}
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-} */
 
 
 /* ////////////////////////////////nnnnnnew 1/////////////////////////////////////////// */
 
-#btn--yp {
-  box-sizing: content-box;
-  position: fixed;
-  z-index: 9;
-  bottom: 1em;
-  right: 1em;
-  border: solid 1em transparent;
-  width: 4.625em;
-  height: 3.25em;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/icon-yp.svg) 50%/cover content-box;
-  font: 16px/ 1.25 trebuchet ms, sans-serif;
-  text-indent: 200vw;
-  text-shadow: none;
-  filter: grayscale(1) drop-shadow(0 0 1px #e8e0e0);
-  transition: .5s;
-  white-space: nowrap;
-}
-#btn--yp:before {
-  box-sizing: inherit;
-  position: absolute;
-  left: 0;
-  bottom: 100%;
-  margin: 1em -.5em;
-  padding: .5em;
-  width: 100%;
-  border-radius: 5px;
-  background: #e8e0e0;
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0vw;
-  white-space: normal;
-  animation: float 1s ease-in-out infinite alternate;
-  content: attr(data-txt);
-}
-#btn--yp:hover, #btn--yp:focus {
-  outline: none;
-  filter: grayscale(0) drop-shadow(0 0 1px crimson);
-}
-
-@keyframes float {
-  to {
-    transform: translateY(0.75em);
-  }
-}
-* {
-  font: inherit;
-}
 
 body {
   align-items: center;
@@ -262,26 +77,37 @@ body {
   background-blend-mode: multiply;
 }
 
-form {
+form.duration {
   align-items: center;
   font: 600 0.475em/1.75em arial, sans-serif;
   /* level things */
 }
+form.volume {
+    align-items: center;
+    font: 600 0.475em/1.75em arial, sans-serif;
+    /* level things */
+  }
 
-[type='range'] {
+[type='range'].duration {
   box-sizing: border-box;
-  margin-right: 1em;
-  width: 98%;
+  width: 100%;
   padding-left: 2%;
+  padding-right: 4%;
   height: 5.25em;
   background: none;
-  /* fix Chrome white */
   cursor: pointer;
-  /* track styles */
-  /* fill styles (Edge fallback only) */
-  /* thumb styles */
-  /* what we want hidden */
 }
+[type='range'].volume {
+    box-sizing: border-box;
+    width: 30vw;
+    height: 0.25em;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    left: 155%;
+    bottom: 5px;
+    transform: 90;
+  }
 [type='range']::-webkit-slider-runnable-track, [type='range']::-webkit-slider-thumb, [type='range'] {
   -webkit-appearance: none;
 }
@@ -294,8 +120,11 @@ form {
   box-shadow: inset 0 -1px 1px #9daabb, inset 0 1px 0.125em #0f1110;
   background: linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
 }
-.js [type='range']::-webkit-slider-runnable-track {
-  background: linear-gradient(90deg, #ffe14c, #ff4c8a calc(var(--val)*0.7%), transparent 0) 50%/ 98% 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 98% 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+.js [type='range'].duration::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #ffe14c, #ff4c8a calc(var(--val)*0.7%), transparent 0) 50%/ 98% 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 98% 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+}
+.js [type='range'].volume::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #18b4b9, #d9eb3cfb calc(var(--val)*100%), transparent 0) 50%/ 98% 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 98% 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
 }
 [type='range']::-moz-range-track {
   box-sizing: border-box;
@@ -400,4 +229,63 @@ html:not(.js) [type='range'] + output {
 [type='range'] + output:after {
   content: "%";
 }
+/* css for play and pause button */
+.play {
+    border: 0;
+    position: relative;
+    left: 30%;
+    top: 6%;
+    outline: unset;
+    background: transparent;
+    box-sizing: border-box;
+    width: 0;
+    height: 52px;
+    border-color: transparent transparent transparent #202020;
+    transition: 100ms all ease;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 30px 0 30px 50px;
+  }
+  .play.paused {
+    border-style: double;
+    border-width: 0px 0 0px 45px;
+  }
+  .play:hover {
+    border-color: transparent transparent transparent #404040;
+  }
+  
 
+/* //css for pause and  play button finished */
+
+/* css for Ghost button */
+.speedup ,.speeddown{
+  border: 2px solid rgb(23, 204, 174);
+  background: transparent;
+  color: rgb(27, 212, 236);
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 11px;
+  cursor: pointer;
+  outline: transparent;
+  -webkit-transition: background 0.25s ease, color 0.25s ease, box-shadow 0.15s ease;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.15s ease;
+  box-shadow: 8px 8px 0 #888;
+}
+.speedup:hover ,.speeddown:hover{
+  color: white;
+  background: rgb(0, 255, 149);
+  box-shadow: 4px 4px 0 #888;
+}
+.speedup:active ,.speeddown:active{
+  box-shadow: 0 0 0 #888;
+}
+
+
+
+
+
+
+
+
+/* css for ghost button ends here */

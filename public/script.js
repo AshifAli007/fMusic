@@ -1,11 +1,14 @@
+
 $(".play").click(function(){
     var song = getSong(this);
-    song[0].play();
-});
-
-$(".pause").click(function(){
-    var song = getSong(this);
-    song[0].pause();
+    if($(this).hasClass("paused")){
+        
+        song[0].pause();
+    }else{
+        song[0].play();
+        
+    }  
+    $(this).toggleClass("paused");
 });
 $(".forward").click(function(){
     var song = getSong(this);
@@ -36,23 +39,7 @@ $(".speeddown").click(function(){
         song[0].playbackRate = 0.1;
     } 
 });
-function timeUpdate(obj){
-    var songName = $(obj).attr("name");
-    var span = $("span[name='"+songName+"'].currentTime");
-    var rangeDuration = $("input[type='range'][name='"+songName+"'].duration");
-    var seconds = Math.floor(obj.currentTime);
-    var minutes = Math.floor(seconds/60);
-    rangeDuration[0].value = seconds;
-    seconds = seconds%60;
-    if(seconds<10){
-        var time = minutes+ ":0" + seconds;
-    }else{
-        var time = minutes+ ":"+seconds;
-    }
-    
-    $(span).html(time);
 
-}
 
 var songsRange = $("input[type='range'].duration");
 
@@ -88,12 +75,12 @@ function myloop(){
     },t);
 }
 myloop();
-
 function getSong(obj){
     var songName = $(obj).attr("name");
     var song = $('audio[name="'+songName+'"]');
     return song;
 }
+<<<<<<< HEAD
 function update(e) {
 	const _t = e.target;
 	document.body.style.setProperty('--val', `${+_t.value}`)
@@ -103,23 +90,77 @@ addEventListener('change', update, false);
 addEventListener('input', update, false);
 const _R = document.querySelectorAll('#r'), 
 			_F = document.querySelectorAll('form');
+=======
+
+document.documentElement.classList.add('js');
+addEventListener('change', update, false);
+addEventListener('input', update, false);
+const _R = document.querySelectorAll('#r');
+>>>>>>> MusicBar
 
 
 function update() {
     var songName = $(this).attr("name");
-    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"]'), 
-			_F = document.querySelector('form[name="'+songName+'"]'); 
-            // _O = document.querySelectorAll('output[for=r]');
+    var song = getSong(this)[0];
+    var button = $("button[name='"+songName+"'].play")[0];
+    if(song.paused){
+        $(button).trigger("click");
+    }
+    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"].duration'), 
+			_F = document.querySelector('form[name="'+songName+'"].duration');
 	let newval = +_Rval.value;
-	
-	// if(newval !== val) {
 		let val = newval;
 		_F.style.setProperty('--val', val);
-		// _O.textContent = val;
-	// }
 };
 document.documentElement.classList.add('js');
 _R.forEach(function(obj){
     obj.addEventListener('input', update, false);
     obj.addEventListener('change', update, false);
 });
+
+/////////////////////Sound Bar//////////////////
+const _V = document.querySelectorAll("#v");
+function updateVolume(){
+    
+    var songName = $(this).attr("name");
+    const _Vval = document.querySelector('input[type="range"][name="'+songName+'"].volume'),
+            _F = document.querySelector('form[name="'+songName+'"].volume');
+            
+    let newval = +_Vval.value;
+    let val = newval;
+    _F.style.setProperty('--val',val);
+}
+
+_V.forEach(function(obj){
+    obj.addEventListener('input', updateVolume, false);
+    obj.addEventListener('change', updateVolume, false);
+});
+
+
+///////////////////////Sound Bar///////////////////
+function timeUpdate(obj){
+    var songName = $(obj).attr("name");
+    var span = $("span[name='"+songName+"'].currentTime");
+    var rangeDuration = $("input[type='range'][name='"+songName+"'].duration");
+    var seconds = Math.floor(obj.currentTime);
+    var minutes = Math.floor(seconds/60);
+    rangeDuration[0].value = seconds;
+    seconds = seconds%60;
+    if(seconds<10){
+        var time = minutes+ ":0" + seconds;
+    }else{
+        var time = minutes+ ":"+seconds;
+    }
+    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"]'), 
+			_F = document.querySelector('form[name="'+songName+'"]'); 
+    let newval = +_Rval.value;
+    let val = newval;
+    _F.style.setProperty('--val', val);
+    $(span).html(time);
+
+}
+  
+
+
+
+

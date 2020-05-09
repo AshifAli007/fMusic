@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="style1.css">
+
 </head>
 <body>
 
@@ -33,23 +34,33 @@
                 <div class="controls">
                         <div class="duration">
                             
-                            <form style="--val: 0" name="<%= music.file.originalname %>">
-                                <input type="range" id="r" class="duration" min="0" max="500" step="0.1" value="0" name="<%= music.file.originalname %>">
+                            <form style="--val: 0" class="duration" name="<%= music.file.originalname %>">
+                                <input type="range" id="r" class="duration" min="0" max="500" step="0.01" value="0" name="<%= music.file.originalname %>">
                                 
                               </form>
-                            <span  class="currentTime" name="<%= music.file.originalname %>">0:00</span>
-                            <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
+                            
                         </div>
-                        <div class="volume">
-                            <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5" name="<%= music.file.originalname %>">
-                        </div>
-                        <div class="play">
-                            <button class="play" name="<%= music.file.originalname %>">Play</button>
-                            <button class="pause" name="<%= music.file.originalname %>">Pause</button>
-                            <button class="forward" name="<%= music.file.originalname %>">+</button>
-                            <button class="backward" name="<%= music.file.originalname %>">-</button>
-                            <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
-                            <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
+                        <div class="controlbuttons">
+                            <div class="time">
+                                <span  class="currentTime" name="<%= music.file.originalname %>">0:00</span>
+                                <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
+                            </div>
+                            
+                            <!-- <button class="forward" name="<%= music.file.originalname %>">+</button>
+                            <button class="backward" name="<%= music.file.originalname %>">-</button> -->
+                            <div class="playback">
+                                <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
+                                <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
+                            </div>
+                            
+                            <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>
+                            <div class="volume">
+                                <form style="--val: 0.7" class="volume" name="<%= music.file.originalname %>">
+                                    <input  type="range" id="v" class="volume" min="0" max="1" step="0.01" value="0.7" name="<%= music.file.originalname %>">
+                                </form>
+                            </div>
+                            
+                            
                         </div>
                 </div>
         </div>
