@@ -38,31 +38,21 @@ div.controls{
     height: 20%;
 }
 div.duration{
-    width: 95%;
-    height: 50%;
+    width: 100%;
+    height: 30%;
     /* background-color: rgb(29, 191, 197); */
     float: left;
 }
 div.volume{
     display: inline-block;
-    width: 5%;
-    height: 50%;
-    background-color: chocolate;
 }
 div.controlbuttons{
     display: inline-block;
     width: 100%;
-    height: 50%;
+    height: 70%;
     background-color: antiquewhite;
 }
-input[type="range"].volume {
-    /* background-color: #ff4c8a;
-    width: 100px; */
-    transform:rotate(90deg);
-     /* margin-right: 100px; */
-    position: relative;
-    right: 24px; 
-}
+
 
 
 
@@ -78,26 +68,37 @@ body {
   background-blend-mode: multiply;
 }
 
-form {
+form.duration {
   align-items: center;
   font: 600 0.475em/1.75em arial, sans-serif;
   /* level things */
 }
+form.volume {
+    align-items: center;
+    font: 600 0.475em/1.75em arial, sans-serif;
+    /* level things */
+  }
 
-[type='range'] {
+[type='range'].duration {
   box-sizing: border-box;
-  margin-right: 1em;
-  width: 98%;
+  width: 100%;
   padding-left: 2%;
+  padding-right: 4%;
   height: 5.25em;
   background: none;
-  /* fix Chrome white */
   cursor: pointer;
-  /* track styles */
-  /* fill styles (Edge fallback only) */
-  /* thumb styles */
-  /* what we want hidden */
 }
+[type='range'].volume {
+    box-sizing: border-box;
+    width: 30vw;
+    height: 0.25em;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    left: 168%;
+    bottom: 5px;
+    transform: 90;
+  }
 [type='range']::-webkit-slider-runnable-track, [type='range']::-webkit-slider-thumb, [type='range'] {
   -webkit-appearance: none;
 }
@@ -110,8 +111,11 @@ form {
   box-shadow: inset 0 -1px 1px #9daabb, inset 0 1px 0.125em #0f1110;
   background: linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 30.6em 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
 }
-.js [type='range']::-webkit-slider-runnable-track {
-  background: linear-gradient(90deg, #ffe14c, #ff4c8a calc(var(--val)*0.7%), transparent 0) 50%/ 98% 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 98% 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+.js [type='range'].duration::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #ffe14c, #ff4c8a calc(var(--val)*0.7%), transparent 0) 50%/ 98% 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 98% 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
+}
+.js [type='range'].volume::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #18b4b9, #d9eb3cfb calc(var(--val)*100%), transparent 0) 50%/ 98% 0.175em no-repeat, linear-gradient(#4c4c4c 50%, #111 0, transparent) 50%/ 98% 0.175em no-repeat, linear-gradient(to right top, #474747, #202020);
 }
 [type='range']::-moz-range-track {
   box-sizing: border-box;
@@ -220,8 +224,8 @@ html:not(.js) [type='range'] + output {
 .play {
     border: 0;
     position: relative;
-    left: 25%;
-    bottom: 5%;
+    left: 30%;
+    top: 6%;
     outline: unset;
     background: transparent;
     box-sizing: border-box;

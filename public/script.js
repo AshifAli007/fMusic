@@ -84,8 +84,7 @@ function getSong(obj){
 document.documentElement.classList.add('js');
 addEventListener('change', update, false);
 addEventListener('input', update, false);
-const _R = document.querySelectorAll('#r'), 
-			_F = document.querySelectorAll('form');
+const _R = document.querySelectorAll('#r');
 
 
 function update() {
@@ -95,16 +94,11 @@ function update() {
     if(song.paused){
         $(button).trigger("click");
     }
-    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"]'), 
-			_F = document.querySelector('form[name="'+songName+'"]'); 
-            // _O = document.querySelectorAll('output[for=r]');
+    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"].duration'), 
+			_F = document.querySelector('form[name="'+songName+'"].duration');
 	let newval = +_Rval.value;
-	
-	// if(newval !== val) {
 		let val = newval;
 		_F.style.setProperty('--val', val);
-		// _O.textContent = val;
-	// }
 };
 document.documentElement.classList.add('js');
 _R.forEach(function(obj){
@@ -112,13 +106,28 @@ _R.forEach(function(obj){
     obj.addEventListener('change', update, false);
 });
 
+/////////////////////Sound Bar//////////////////
+const _V = document.querySelectorAll("#v");
+function updateVolume(){
+    
+    var songName = $(this).attr("name");
+    const _Vval = document.querySelector('input[type="range"][name="'+songName+'"].volume'),
+            _F = document.querySelector('form[name="'+songName+'"].volume');
+            
+    let newval = +_Vval.value;
+    let val = newval;
+    _F.style.setProperty('--val',val);
+}
+
+_V.forEach(function(obj){
+    obj.addEventListener('input', updateVolume, false);
+    obj.addEventListener('change', updateVolume, false);
+});
+
+
+///////////////////////Sound Bar///////////////////
 function timeUpdate(obj){
     var songName = $(obj).attr("name");
-    // if(obj.paused){
-    //     console.log("Hii");
-    //     var button = $("button[name='"+songName+"'].play")[0];
-    //     $(button).trigger("click");
-    // }
     var span = $("span[name='"+songName+"'].currentTime");
     var rangeDuration = $("input[type='range'][name='"+songName+"'].duration");
     var seconds = Math.floor(obj.currentTime);

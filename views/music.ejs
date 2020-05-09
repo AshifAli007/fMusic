@@ -34,22 +34,27 @@
                 <div class="controls">
                         <div class="duration">
                             
-                            <form style="--val: 0" name="<%= music.file.originalname %>">
-                                <input type="range" id="r" class="duration" min="0" max="500" step="0.1" value="0" name="<%= music.file.originalname %>">
+                            <form style="--val: 0" class="duration" name="<%= music.file.originalname %>">
+                                <input type="range" id="r" class="duration" min="0" max="500" step="0.01" value="0" name="<%= music.file.originalname %>">
                                 
                               </form>
-                            <span  class="currentTime" name="<%= music.file.originalname %>">0:00</span>
-                            <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
-                        </div>
-                        <div class="volume">
-                            <input  type="range" class="volume" min="0" max="1" step="0.01" value="0.5" name="<%= music.file.originalname %>" orient="vertical">
+                            
                         </div>
                         <div class="controlbuttons">
-                            <button class="forward" name="<%= music.file.originalname %>">+</button>
-                            <button class="backward" name="<%= music.file.originalname %>">-</button>
+                            <span  class="currentTime" name="<%= music.file.originalname %>">0:00</span>
+                            <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
+                            <!-- <button class="forward" name="<%= music.file.originalname %>">+</button>
+                            <button class="backward" name="<%= music.file.originalname %>">-</button> -->
                             <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
                             <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
                             <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>
+                            <div class="volume">
+                                <form style="--val: 0.7" class="volume" name="<%= music.file.originalname %>">
+                                    <input  type="range" id="v" class="volume" min="0" max="1" step="0.01" value="0.7" name="<%= music.file.originalname %>">
+                                </form>
+                            </div>
+                            
+                            
                         </div>
                 </div>
         </div>
