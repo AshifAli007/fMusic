@@ -45,7 +45,7 @@ var songsRange = $("input[type='range'].duration");
 
 var song;
 var i=0;
-var t=500;
+var t=1000;
 function myloop(){
     setTimeout(function(){
             song = getSong(songsRange[i]);
