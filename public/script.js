@@ -147,54 +147,10 @@ function timeUpdate(obj){
     $(span).html(time);
 
 }
+/////for Slideshow////////////////
 
-///////////////////////Windows Scroll
+// $("div.slideshow > div + div").hide();   //best code i learnt
 
-// window.scroll({
-//     top: 2500, 
-//     left: 0, 
-//     behavior: 'smooth'
-//   });
-
- 
-// document.addEventListener('scroll', function (event) {
-//     setTimeout(function(){
-//         window.scrollBy({ 
-//             top: 1000, // could be negative value
-//             left: 0, 
-//             behavior: 'smooth' 
-//           });
-
-//     },2000);
-    
-//         console.log('scrolling', event.target);
-    
-// }, true /*Capture event*/);
-
-
-// window.onscroll = function(e) {
-//     // print "false" if direction is down and "true" if up
-//     this.console.log(this);
-//     console.log(this.oldScroll > this.scrollY);
-//     this.oldScroll = this.scrollY;
-//   }
-
-  /////for Slideshow////////////////
-
-
-// $("div.slideshow > div + div").hide();
-// slides.forEach(function(obj){
-//     console.log(obj);
-// });
-//   setInterval(function() {
-//     $('#slideshow > div:first')
-//       .fadeOut(1000)
-//       .next()
-//       .fadeIn(1000)
-//       .end()
-//       .appendTo('#slideshow');
-//   }, 3000);
-////////////////////////////////////////
 ////////////////////For Scrolling ///////////////////
 var currentSong = 1;
 var songLength = $("audio").length;
@@ -207,14 +163,14 @@ $(window).bind('mousewheel DOMMouseScroll', function(event){
             var top = pos.top;
             var left = pos.left;
             window.scrollTo((left < 0 ? 0 : left), (top < 0 ? 0 : top));
-            console.log(currentSong);
+            
         }
         
     }
     else {
         if(currentSong < songLength){
             currentSong +=1;
-            console.log(currentSong);
+            
             var song = "#song" + currentSong;
             var pos = $(song).offset();
             var top = pos.top;

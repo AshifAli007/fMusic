@@ -24,25 +24,16 @@
         <% i++; %>
         <div class="mycontainer" id="song<%= i %>">
                 <div class="image">
-                    <h3><%= music.file.originalname %></h3>
+                    
                     <audio name="<%= music.file.originalname %>" 
                         ontimeupdate="timeUpdate(this);">
                         
                         <source src="uploads/<%= music.file.filename %>" type="audio/mpeg">
                             
                     </audio>
-
-                   <div class="slideshow">
-                    <div>
-                        <img src="http://farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg">
-                      </div>
-                      <div>
-                        <img src="http://farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg">
-                      </div>
-                      <div>
-                        Pretty cool eh? This slide is proof the content can be anything.
-                      </div>
-                   </div>
+                        <figure>
+                            <img class="slides" src="uploads/<%= music.image.filename %>" />
+                        </figure> 
                 </div>
                 <div class="controls">
                         <div class="duration">
@@ -64,6 +55,7 @@
                             <div class="playback">
                                 <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
                                 <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
+                                <!-- <h3><%= music.file.originalname %></h3> -->
                             </div>
                             
                             <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>

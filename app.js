@@ -21,7 +21,8 @@ var upload = multer({ storage: storage });
 
 mongoose.connect("mongodb://localhost:27017/fMusic",{useNewUrlParser:true,useUnifiedTopology:true});
 const playlistSchema = new mongoose.Schema({
-    file:Object
+    file : Object,
+    image : Object
 });
 const Playlist = new mongoose.model("playlist",playlistSchema);
 app.get("/",function(req,res){
@@ -38,15 +39,22 @@ app.get("/music",function(req,res){
     });
     
 });
-app.post('/music', upload.single('myfile'), (req, res) => {
+var songUpload = upload.fields([{name:"myfile",maxCount:1},{name:"image",maxCount:1}]);
+app.post('/music', songUpload, (req, res) => {
     var music = new Playlist({
-        file : req.file
+        file : req.files["myfile"][0],
+        image : req.files["image"][0]
     });
     music.save();
-    res.send(req.file);
-
-    console.log(req.file);
+    res.send(req.files["image"][0]);
 });
+// app.post('/music', upload.single('myfile'), (req, res) => {
+//     var music = new Playlist({
+//         file : req.file
+//     });
+//     music.save();
+//     res.send(req.file);
+// });
 
 app.get("/add",function(req,res){
     res.render("add");
