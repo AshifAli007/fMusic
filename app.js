@@ -19,7 +19,8 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-mongoose.connect("mongodb+srv://admin-ashif:1997*Fira@cluster0-lfttz.mongodb.net/fMusic",{useNewUrlParser:true,useUnifiedTopology:true});
+// mongoose.connect("mongodb+srv://admin-ashif:1997*Fira@cluster0-lfttz.mongodb.net/fMusic",{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect("mongodb://localhost:27017/fMusic",{useNewUrlParser:true,useUnifiedTopology:true});
 const playlistSchema = new mongoose.Schema({
     file : Object,
     image : Object
