@@ -92,6 +92,37 @@ div.repeat{
   top: 78%;
   display: none;
 }
+.img-hover-zoom {
+  height: 100%; /* Modify this according to your need */
+  overflow: hidden; /* Removing this will break the effects */
+}
+/* Slow-motion Zoom Container */
+.img-hover-zoom--slowmo img {
+  transform-origin: 50% 65%;
+  transition: transform 4s, filter 3s ease-in-out;
+  filter: brightness(90%);
+  /* border-radius: 25px; */
+}
+
+/* The Transformation */
+.img-hover-zoom--slowmo:hover img {
+  filter: brightness(100%);
+  transform: scale(1.2);
+}
+.mutebutton{
+  display: inline-block;
+    position: relative;
+    left: 879px;
+    bottom: 4px;
+}
+.mutebutton > img{
+  width: 30px;
+}
+.muted > img{
+  opacity: 0.5;
+}
+
+
 
 
 

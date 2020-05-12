@@ -6,6 +6,31 @@
 function myOnLoadedData(obj){
             //  console.log();
 }
+var volume1;
+function mute(obj){
+    var song = getSong(obj)[0];
+    $(obj).toggleClass("muted");
+    var songName = $(obj).attr("name");
+                // $("input[type='range'][name='"+songName+"'].volume")[0].value = presentSong.volume;
+                _F = document.querySelector('form[name="'+songName+'"].volume');
+    
+    if(song.muted == false){
+        volume1 = song.volume;
+        song.muted = true;
+        song.volume = 0;
+        _F.style.setProperty('--val',0);
+        $("input[type='range'][name='"+songName+"'].volume")[0].value = 0;
+
+    }else{
+        song.muted = false;
+        console.log(volume1);
+        song.volume = volume1;
+        _F.style.setProperty('--val',volume1);
+        $("input[type='range'][name='"+songName+"'].volume")[0].value = volume1;
+    }
+    console.log(typeof(volume1));
+
+}
 function myOnCanPlayThroughFunction(obj){
     var seconds = Math.ceil(obj.duration);
     console.log(seconds);

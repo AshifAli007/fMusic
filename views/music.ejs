@@ -38,8 +38,11 @@
 
     <div class="mynav">
         <h2 class="currentPlaybackSpeed">0x</h2>
-        <a class="navbar-brand" href="#">
-            <img src="/images/logo.png" width="500" height="100" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" href="/">
+            <div class="img-hover-zoom img-hover-zoom--slowmo">
+                <img src="/images/logo.png" width="500" height="100" class="d-inline-block align-top" alt="">
+            </div>
+            
             
           </a>
           <div class="playlists">
@@ -64,7 +67,10 @@
                             
                     </audio>
                         <figure>
-                            <img class="slides" src="/uploads/<%= music.image.filename %>" />
+                            <div class="img-hover-zoom img-hover-zoom--slowmo" style="border-radius: 5px;">
+                                <img class="slides" src="/uploads/<%= music.image.filename %>" />
+                            </div>
+                            
                         </figure> 
                 </div>
                 <div class="controls">
@@ -95,6 +101,9 @@
                             </div>
                             
                             <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>
+                            <div class="mutebutton" onclick="mute(this)" name="<%= music.file.originalname %>">
+                                <img src="/images/mute.png" alt="">
+                            </div>
                             <div class="volume">
                                 <form style="--val: 0.7" class="volume" name="<%= music.file.originalname %>">
                                     <input  type="range" id="v" class="volume" min="0" max="1" step="0.01" value="0.7" name="<%= music.file.originalname %>">
