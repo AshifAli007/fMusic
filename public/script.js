@@ -367,13 +367,19 @@ function openNav() {
   }
   $("div.repeat > span").on("click",function(){
       var song = getSong(this)[0];
+      var currentPlaybackSpeed = $(".currentPlaybackSpeed");
       if(song.loop == false){
           song.loop = true;
+          $(currentPlaybackSpeed).html("<h2>Loop</h2>");
       }else{
           song.loop = false;
+          $(currentPlaybackSpeed).html("<h2>Loop Off</h2>");
       }
       console.log(song.loop);
     $(this).toggleClass("loop");
+    
+    $(currentPlaybackSpeed).fadeIn(200);
+    $(currentPlaybackSpeed).fadeOut(200);
   });
 
 
