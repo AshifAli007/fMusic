@@ -3,7 +3,26 @@
  $(document).ready(function(){
     $(this).scrollTop(0);
 });
+function myOnLoadedData(obj){
+            //  console.log();
+}
+function myOnCanPlayThroughFunction(obj){
+    var seconds = Math.ceil(obj.duration);
+    console.log(seconds);
+    console.log(obj);
+    $(obj).attr("max",seconds);
+var songName = $(obj).attr("name");
+var span = $("span[name='"+songName+"'].duration");
+var minutes = Math.floor(seconds/60);
+seconds = seconds%60-1;
+if(seconds<10){
+    var duration = " / "+minutes +":0"+seconds;
+}else{
+    var duration = " / "+minutes +":"+seconds;
+}
 
+$(span).html(duration);
+}
 $(document).keydown(function(e){
     switch (e.keyCode) {
         case 38:
@@ -158,40 +177,40 @@ $(".speeddown").click(function(){
 });
 
 
-var songsRange = $("input[type='range'].duration");
+// var songsRange = $("input[type='range'].duration");
 
-var song;
-var i=0;
-var t=3000;
-function myloop(){
-    setTimeout(function(){
-            song = getSong(songsRange[i]);
-            // song[0].addEventListener('loadedmetadata', function() {
-                var seconds = Math.ceil(song[0].duration);
-                $(songsRange[i]).attr("max",seconds);
-            // });
-            var songName = $(songsRange[i]).attr("name");
-            var span = $("span[name='"+songName+"'].duration");
-            var minutes = Math.floor(seconds/60);
-            seconds = seconds%60-1;
-            if(seconds<10){
-                var duration = " / "+minutes +":0"+seconds;
-            }else{
-                var duration = " / "+minutes +":"+seconds;
-            }
+// var song;
+// var i=0;
+// var t=3000;
+// function myloop(){
+//     setTimeout(function(){
+//             song = getSong(songsRange[i]);
+//             // song[0].addEventListener('loadedmetadata', function() {
+//                 var seconds = Math.ceil(song[0].duration);
+//                 $(songsRange[i]).attr("max",seconds);
+//             // });
+//             var songName = $(songsRange[i]).attr("name");
+//             var span = $("span[name='"+songName+"'].duration");
+//             var minutes = Math.floor(seconds/60);
+//             seconds = seconds%60-1;
+//             if(seconds<10){
+//                 var duration = " / "+minutes +":0"+seconds;
+//             }else{
+//                 var duration = " / "+minutes +":"+seconds;
+//             }
             
-            $(span).html(duration);
-            i++;
+//             $(span).html(duration);
+//             i++;
         
-            t /=2;
+//             t /=2;
         
         
-        if(i<songsRange.length){
-            myloop();
-        }
-    },t);
-}
-myloop();
+//         if(i<songsRange.length){
+//             myloop();
+//         }
+//     },t);
+// }
+// myloop();
 function getSong(obj){
     var songName = $(obj).attr("name");
     var song = $('audio[name="'+songName+'"]');

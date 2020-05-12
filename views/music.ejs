@@ -57,7 +57,8 @@
                 <div class="image">
                     
                     <audio name="<%= music.file.originalname %>" 
-                        ontimeupdate="timeUpdate(this);">
+                        ontimeupdate="timeUpdate(this);" oncanplaythrough="myOnCanPlayThroughFunction(this)"
+                        onloadeddata="myOnLoadedData(this)" >
                         
                         <source src="/uploads/<%= music.file.filename %>" type="audio/mpeg">
                             
