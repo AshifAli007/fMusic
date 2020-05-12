@@ -190,7 +190,7 @@ function getSong(obj){
     return song;
 }
 
-document.documentElement.classList.add('js');
+// document.documentElement.classList.add('js');
 addEventListener('change', update, false);
 addEventListener('input', update, false);
 var _R = document.querySelectorAll('#r');
