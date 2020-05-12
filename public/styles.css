@@ -121,6 +121,11 @@ div.repeat{
 .muted > img{
   opacity: 0.5;
 }
+.playbutton{
+    display: inline-block;
+    position: relative;
+    left: 34%;
+}
 
 
 
@@ -298,9 +303,9 @@ html:not(.js) [type='range'] + output {
 /* css for play and pause button */
 .play {
     border: 0;
-    position: relative;
-    left: 35%;
-    top: 6%;
+    position: absolute;
+    /* left: 35%; */
+    top: -40px;
     outline: unset;
     background: transparent;
     box-sizing: border-box;

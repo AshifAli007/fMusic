@@ -99,8 +99,10 @@
                                 <button class="speeddown ghost" name="<%= music.file.originalname %>">Speed Down</button>
                                 <!-- <h3><%= music.file.originalname %></h3> -->
                             </div>
+                            <div class="playbutton">
+                                <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>
+                            </div>
                             
-                            <button class='play' name="<%= music.file.originalname %>" style="outline: unset;"></button>
                             <div class="mutebutton" onclick="mute(this)" name="<%= music.file.originalname %>">
                                 <img src="/images/mute.png" alt="">
                             </div>
