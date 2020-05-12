@@ -27,6 +27,7 @@ function mute(obj){
         song.volume = volume1;
         _F.style.setProperty('--val',volume1);
         $("input[type='range'][name='"+songName+"'].volume")[0].value = volume1;
+        console.log(volume1);
     }
     console.log(typeof(volume1));
 
@@ -119,6 +120,9 @@ $(document).keydown(function(e){
                 var songName = $(presentSong).attr("name");
                 $(".speeddown[name='"+songName+"']").trigger("click");
                 break;
+            case 77:
+                console.log("Muted");
+                $(".mutebutton").trigger("click");
         default:
             break;
     }
