@@ -32,11 +32,13 @@ function mute(obj){
 
 }
 function myOnCanPlayThroughFunction(obj){
+    var songName = $(obj).attr("name");
     var seconds = Math.ceil(obj.duration);
     console.log(seconds);
     console.log(obj);
-    $(obj).attr("max",seconds);
-var songName = $(obj).attr("name");
+    var input = $("input[name='"+songName+"'].duration");
+    $(input).attr("max",seconds);
+
 var span = $("span[name='"+songName+"'].duration");
 var minutes = Math.floor(seconds/60);
 seconds = seconds%60-1;
