@@ -153,8 +153,8 @@ $(".speeddown").click(function(){
     }else{
         $(currentPlaybackSpeed).html("<h2>"+song[0].playbackRate+"x</h2>");
     }
-    $(currentPlaybackSpeed).fadeIn(600);
-    $(currentPlaybackSpeed).fadeOut(600);
+    $(currentPlaybackSpeed).fadeIn(200);
+    $(currentPlaybackSpeed).fadeOut(200);
 });
 
 
@@ -162,7 +162,7 @@ var songsRange = $("input[type='range'].duration");
 
 var song;
 var i=0;
-var t=1000;
+var t=3000;
 function myloop(){
     setTimeout(function(){
             song = getSong(songsRange[i]);
