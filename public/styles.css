@@ -1,8 +1,14 @@
 html {
   scroll-behavior: smooth;
+  /* background-color:burlywood;  */
+  
 }
 body{
-    background-color:red;
+  /* height: 0px; */
+  /* background-color:burlywood;  */
+  /* height: 0px; */
+  background: linear-gradient(75deg, #fad48f 0%, rgb(248, 220, 158) 40%, #f5b971 5%);
+
 }
 img.d-inline-block{
     position: fixed;
@@ -21,7 +27,7 @@ img.d-inline-block{
 div.mycontainer{
     width: 100vw;
     height: 50vw;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 div.mynav{
     position: absolute;
@@ -31,7 +37,7 @@ div.mynav{
 div.image{
     width: 100vw;
     height: 80%;
-    background-color:burlywood; 
+    /* background-color:burlywood;  */
     padding: 100px;
 }
 div.controls{
@@ -83,7 +89,7 @@ div.repeat{
 .currentPlaybackSpeed{
   position: fixed;
   left: 1%;
-  top: 79%;
+  top: 78%;
   display: none;
 }
 
@@ -98,12 +104,12 @@ html{
 }
 
 body {
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  height: 100vh;
-  background: radial-gradient(rgba(73, 88, 107, 0.85), rgba(9, 21, 33, 0.75)), url(https://i.stack.imgur.com/PEnJm.png), radial-gradient(rgba(73, 88, 107, 0.25), rgba(9, 21, 33, 0.25));
-  background-blend-mode: multiply;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* margin: 0; */
+  /* height: 100vh; */
+  /* background: radial-gradient(rgba(73, 88, 107, 0.85), rgba(9, 21, 33, 0.75)), url(https://i.stack.imgur.com/PEnJm.png), radial-gradient(rgba(73, 88, 107, 0.25), rgba(9, 21, 33, 0.25)); */
+  /* background-blend-mode: multiply; */
 }
 
 form.duration {

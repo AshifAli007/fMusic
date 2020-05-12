@@ -1,6 +1,6 @@
  //to set volume to 75% as initial volume
- var presentSong;
-
+ console.log($(document).height());
+ var presentSong=$("audio")[0];
  $(document).ready(function(){
     $(this).scrollTop(0);
 });
@@ -28,18 +28,26 @@ $(document).keydown(function(e){
                 
                 var songName = $(presentSong).attr("name");
                 $("input[type='range'][name='"+songName+"'].volume")[0].value = presentSong.volume;
-                 _F = document.querySelector('form[name="'+songName+'"].volume');
+                _F = document.querySelector('form[name="'+songName+'"].volume');
                 _F.style.setProperty('--val',presentSong.volume);
                 break;
             case 37:
                 console.log("Key Left");
-                console.log(presentSong.currentTime)
                 presentSong.currentTime -=5;
+                var songName = $(presentSong).attr("name");
+                var button = $(".play[name='"+songName+"']");
+                if(presentSong.paused == true){
+                    $(button).trigger("click");
+                }
                 break;
             case 39:
                 console.log("Key right");
-                console.log(presentSong.currentTime)
                 presentSong.currentTime +=5;
+                var songName = $(presentSong).attr("name");
+                var button = $(".play[name='"+songName+"']");
+                if(presentSong.paused == true){
+                    $(button).trigger("click");
+                }
                 break;
             case 32:
                 console.log("Key space");
@@ -127,8 +135,8 @@ $(".speedup").click(function(){
         $(currentPlaybackSpeed).html("<h2>"+song[0].playbackRate+"x</h2>");
     }
     
-    $(currentPlaybackSpeed).fadeIn(600);
-    $(currentPlaybackSpeed).fadeOut(600);
+    $(currentPlaybackSpeed).fadeIn(200);
+    $(currentPlaybackSpeed).fadeOut(200);
 
 
 });
