@@ -55,6 +55,8 @@ app.get("/music/:playlistName",function(req,res){
     Playlistrecord.find(function(err,obj){
         if(!err){
             playlistRecord = obj;
+        }else{
+            res.send(err);
         }
     });
     Playlist.find(function(err,playlist){
