@@ -1,5 +1,4 @@
  //to set volume to 75% as initial volume
- console.log($(document).height());
  var presentSong=$("audio")[0];
  $(document).ready(function(){
     $(this).scrollTop(0);
@@ -82,6 +81,7 @@ $(document).keydown(function(e){
  for(var i=0;i<AllAudios.length;i++){
      AllAudios[i].volume = 0.7;
      AllAudios[i].loop = true;
+
  }
 $(".play").click(function(){
     var song = getSong(this);
