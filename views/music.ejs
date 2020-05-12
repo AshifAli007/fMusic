@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist</title>
+    <title><%= playlistName %></title>
+    <link rel="icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/style1.css">
 
 </head>
 <body>
+        <!-- html for overlay content -->
+        <div id="myNav" class="overlay">
+            
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          
+            <!-- Overlay content -->
+            <div class="overlay-content">
+                <%Playlistrecord.forEach(function(obj){%>
+                    <a href="/music/<%=obj.playlistName%>"><%=obj.playlistName%></a>
+                <%});%>
+                <button class="ghost" onclick="create()">Create Playlist</button>
+                <div id="insert" class="overlay-content">
+
+                </div>
+            </div>
+          
+          </div>
+          
+          <!-- Use any element to open/show the overlay navigation menu -->
+          
+
+
+
 
     <div class="mynav">
+        <h2 class="currentPlaybackSpeed">0x</h2>
         <a class="navbar-brand" href="#">
-            <img src="images/logo.png" width="500" height="100" class="d-inline-block align-top" alt="">
+            <img src="/images/logo.png" width="500" height="100" class="d-inline-block align-top" alt="">
             
           </a>
-  
-          <button type="button" class="btn btn-outline-light"><a href="/add">Add</a></button>
+          <div class="playlists">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; <%= playlistName %></span>          
+          </div>
+         
+          
+          <a href="/add/<%= playlistName %>"><button type="button" class="btn btn-outline-light">Add</button></a>
     </div>
+    
     <% var i = 0; %>
     <% Playlist.forEach(function(music){ %>
         <% i++; %>
@@ -28,14 +59,15 @@
                     <audio name="<%= music.file.originalname %>" 
                         ontimeupdate="timeUpdate(this);">
                         
-                        <source src="uploads/<%= music.file.filename %>" type="audio/mpeg">
+                        <source src="/uploads/<%= music.file.filename %>" type="audio/mpeg">
                             
                     </audio>
                         <figure>
-                            <img class="slides" src="uploads/<%= music.image.filename %>" />
+                            <img class="slides" src="/uploads/<%= music.image.filename %>" />
                         </figure> 
                 </div>
                 <div class="controls">
+
                         <div class="duration">
                             
                             <form style="--val: 0" class="duration" name="<%= music.file.originalname %>">
@@ -45,6 +77,9 @@
                             
                         </div>
                         <div class="controlbuttons">
+                            <div class="repeat">
+                                <span style="position: relative;font-size:40px;cursor:pointer;top: 20px;" name="<%= music.file.originalname %>">&#9834;</span>          
+                              </div>
                             <div class="time">
                                 <span  class="currentTime" name="<%= music.file.originalname %>">0:00</span>
                                 <span  class="duration" name="<%= music.file.originalname %>"> / 0:00</span>
@@ -53,8 +88,8 @@
                             <!-- <button class="forward" name="<%= music.file.originalname %>">+</button>
                             <button class="backward" name="<%= music.file.originalname %>">-</button> -->
                             <div class="playback">
-                                <button class="speedup" name="<%= music.file.originalname %>">Speed Up</button>
-                                <button class="speeddown" name="<%= music.file.originalname %>">Speed Down</button>
+                                <button class="speedup ghost" name="<%= music.file.originalname %>">Speed Up</button>
+                                <button class="speeddown ghost" name="<%= music.file.originalname %>">Speed Down</button>
                                 <!-- <h3><%= music.file.originalname %></h3> -->
                             </div>
                             
@@ -83,6 +118,6 @@
     
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

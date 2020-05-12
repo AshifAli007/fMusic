@@ -1,6 +1,96 @@
+ //to set volume to 75% as initial volume
+ var presentSong;
 
+ $(document).ready(function(){
+    $(this).scrollTop(0);
+});
+
+$(document).keydown(function(e){
+    switch (e.keyCode) {
+        case 38:
+                console.log("up Arrow");
+                if(presentSong.volume<1){
+                    presentSong.volume = (presentSong.volume+0.1).toFixed(1);
+                }
+                console.log(presentSong.volume);
+                
+                var songName = $(presentSong).attr("name");
+                $("input[type='range'][name='"+songName+"'].volume")[0].value = presentSong.volume;
+                 _F = document.querySelector('form[name="'+songName+'"].volume');
+                _F.style.setProperty('--val',presentSong.volume);
+            break;
+            case 40:
+                console.log("Key Down");
+                if(presentSong.volume>0){
+                    presentSong.volume = (presentSong.volume-0.1).toFixed(1);
+                }
+                console.log(presentSong.volume);
+                
+                var songName = $(presentSong).attr("name");
+                $("input[type='range'][name='"+songName+"'].volume")[0].value = presentSong.volume;
+                 _F = document.querySelector('form[name="'+songName+'"].volume');
+                _F.style.setProperty('--val',presentSong.volume);
+                break;
+            case 37:
+                console.log("Key Left");
+                console.log(presentSong.currentTime)
+                presentSong.currentTime -=5;
+                break;
+            case 39:
+                console.log("Key right");
+                console.log(presentSong.currentTime)
+                presentSong.currentTime +=5;
+                break;
+            case 32:
+                console.log("Key space");
+                
+                var songName = $(presentSong).attr("name");
+                var button = $("button[name='"+songName+"'].play");
+                if($(button).hasClass("paused")){
+        
+                    presentSong.pause();
+                }else{
+                    presentSong.play();
+                    
+                }  
+                $(button).toggleClass("paused");
+                
+                break;
+            case 221:
+                console.log("speed up");
+                var songName = $(presentSong).attr("name");
+                $(".speedup[name='"+songName+"']").trigger("click");
+                break;
+            case 219:
+                console.log("speed down");
+                var songName = $(presentSong).attr("name");
+                $(".speeddown[name='"+songName+"']").trigger("click");
+                break;
+        default:
+            break;
+    }
+});
+ var AllAudios = $("audio");
+ for(var i=0;i<AllAudios.length;i++){
+     AllAudios[i].volume = 0.7;
+     AllAudios[i].loop = true;
+ }
 $(".play").click(function(){
     var song = getSong(this);
+    var AllAudios = $("audio");
+    for(var i=0;i<AllAudios.length;i++){
+        if(!(song[0] === AllAudios[i])){
+            if(AllAudios[i].paused == false){
+                AllAudios[i].pause();
+                var name = $(AllAudios[i]).attr("name");
+                var button = $("button[name='"+name+"']");
+                $(button).toggleClass("paused");
+            }
+        }else{
+            
+        }
+    }
+    
     if($(this).hasClass("paused")){
         
         song[0].pause();
@@ -30,6 +120,17 @@ $("input[type='range'].volume").change(function(){
 $(".speedup").click(function(){
     var song = getSong(this);
     song[0].playbackRate =(song[0].playbackRate+0.1).toFixed(2);
+    var currentPlaybackSpeed = $(".currentPlaybackSpeed");
+    if(song[0].playbackRate == 1){
+        $(currentPlaybackSpeed).html("<h2>Normal</h2>");
+    }else{
+        $(currentPlaybackSpeed).html("<h2>"+song[0].playbackRate+"x</h2>");
+    }
+    
+    $(currentPlaybackSpeed).fadeIn(600);
+    $(currentPlaybackSpeed).fadeOut(600);
+
+
 });
 $(".speeddown").click(function(){
     var song = getSong(this);
@@ -38,6 +139,14 @@ $(".speeddown").click(function(){
     }else{
         song[0].playbackRate = 0.1;
     } 
+    var currentPlaybackSpeed = $(".currentPlaybackSpeed");
+    if(song[0].playbackRate == 1){
+        $(currentPlaybackSpeed).html("<h2>Normal</h2>");
+    }else{
+        $(currentPlaybackSpeed).html("<h2>"+song[0].playbackRate+"x</h2>");
+    }
+    $(currentPlaybackSpeed).fadeIn(600);
+    $(currentPlaybackSpeed).fadeOut(600);
 });
 
 
@@ -84,7 +193,7 @@ function getSong(obj){
 document.documentElement.classList.add('js');
 addEventListener('change', update, false);
 addEventListener('input', update, false);
-const _R = document.querySelectorAll('#r');
+var _R = document.querySelectorAll('#r');
 
 
 function update() {
@@ -94,7 +203,7 @@ function update() {
     if(song.paused){
         $(button).trigger("click");
     }
-    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"].duration'), 
+    var _Rval = document.querySelector('input[type="range"][name="'+songName+'"].duration'), 
 			_F = document.querySelector('form[name="'+songName+'"].duration');
 	let newval = +_Rval.value;
 		let val = newval;
@@ -111,11 +220,12 @@ const _V = document.querySelectorAll("#v");
 function updateVolume(){
     
     var songName = $(this).attr("name");
-    const _Vval = document.querySelector('input[type="range"][name="'+songName+'"].volume'),
+    var _Vval = document.querySelector('input[type="range"][name="'+songName+'"].volume'),
             _F = document.querySelector('form[name="'+songName+'"].volume');
             
     let newval = +_Vval.value;
     let val = newval;
+    console.log(val);
     _F.style.setProperty('--val',val);
 }
 
@@ -127,6 +237,7 @@ _V.forEach(function(obj){
 
 ///////////////////////Sound Bar///////////////////
 function timeUpdate(obj){
+    presentSong = getSong(obj)[0];
     var songName = $(obj).attr("name");
     var span = $("span[name='"+songName+"'].currentTime");
     var rangeDuration = $("input[type='range'][name='"+songName+"'].duration");
@@ -139,7 +250,7 @@ function timeUpdate(obj){
     }else{
         var time = minutes+ ":"+seconds;
     }
-    const _Rval = document.querySelector('input[type="range"][name="'+songName+'"]'), 
+    var _Rval = document.querySelector('input[type="range"][name="'+songName+'"]'), 
 			_F = document.querySelector('form[name="'+songName+'"]'); 
     let newval = +_Rval.value;
     let val = newval;
@@ -164,6 +275,12 @@ $(window).bind('mousewheel DOMMouseScroll', function(event){
             var left = pos.left;
             window.scrollTo((left < 0 ? 0 : left), (top < 0 ? 0 : top));
             
+        }else if(currentSong == 1){
+            var song = "#song" + currentSong;
+            var pos = $(song).offset();
+            var top = pos.top;
+            var left = pos.left;
+            window.scrollTo((left < 0 ? 0 : left), (top < 0 ? 0 : top));
         }
         
     }
@@ -181,4 +298,28 @@ $(window).bind('mousewheel DOMMouseScroll', function(event){
     }
 });
 
-//////////////////////////////////////////////////////////////
+////////////////for overlay content//////////////////////////////////////////////
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+  
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+
+  function create(){
+      $("#insert").html('<form action="/add" method="POST" > <input type="text" placeholder="Enter Playlist Name" autocomplete="off" name="playlistName"> <button type="submit" class="ghost">Create</button></form>');
+      
+  }
+  $("div.repeat > span").on("click",function(){
+      var song = getSong(this)[0];
+      if(song.loop == false){
+          song.loop = true;
+      }else{
+          song.loop = false;
+      }
+      console.log(song.loop);
+    $(this).toggleClass("loop");
+  });
+
+

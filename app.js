@@ -1,4 +1,5 @@
 const express = require("express");
+var _ = require('lodash');
 const bodyParser = require("body-parser");
 const app = express();
 const path = require("path");
@@ -25,15 +26,40 @@ const playlistSchema = new mongoose.Schema({
     file : Object,
     image : Object
 });
-const Playlist = new mongoose.model("playlist",playlistSchema);
+const playlistrecordSchema = new mongoose.Schema({
+    playlistName : String
+});
+var Playlistrecord  = new mongoose.model("playlistrecord",playlistrecordSchema);
+var Playlist = new mongoose.model("playlist",playlistSchema);
 app.get("/",function(req,res){
-    res.render("home");
+    res.redirect("/music/ashif");
 });
 
-app.get("/music",function(req,res){
+app.get("/music/:playlistName",function(req,res){
+    var playlistName = (req.params.playlistName).toLowerCase();
+    Playlist = new mongoose.model(playlistName,playlistSchema);
+    playlistName = _.capitalize(playlistName);
+    Playlistrecord.find({playlistName : playlistName},function(err,name){
+            if(!err){
+                if(name==""){
+                    var newrecord = new Playlistrecord({
+                        playlistName : playlistName
+                    });
+                    newrecord.save();
+                }
+            }else{
+                res.send(err);
+            }
+    });
+    var playlistRecord;
+    Playlistrecord.find(function(err,obj){
+        if(!err){
+            playlistRecord = obj;
+        }
+    });
     Playlist.find(function(err,playlist){
         if(!err){
-            res.render("music",{Playlist:playlist});
+            res.render("music",{Playlist:playlist,playlistName:playlistName,Playlistrecord:playlistRecord});
         }else{
             res.send(err);
         }
@@ -41,13 +67,15 @@ app.get("/music",function(req,res){
     
 });
 var songUpload = upload.fields([{name:"myfile",maxCount:1},{name:"image",maxCount:1}]);
-app.post('/music', songUpload, (req, res) => {
+app.post('/music/:playlistName', songUpload, (req, res) => {
+    var playlistName = (req.params.playlistName).toLowerCase();
+    Playlist = new mongoose.model(playlistName,playlistSchema); 
     var music = new Playlist({
         file : req.files["myfile"][0],
         image : req.files["image"][0]
     });
     music.save();
-    res.send(req.files["image"][0]);
+    res.redirect("/music/"+playlistName);
 });
 // app.post('/music', upload.single('myfile'), (req, res) => {
 //     var music = new Playlist({
@@ -57,10 +85,15 @@ app.post('/music', songUpload, (req, res) => {
 //     res.send(req.file);
 // });
 
-app.get("/add",function(req,res){
-    res.render("add");
+app.get("/add/:playlistName",function(req,res){
+    var playlistName = (req.params.playlistName).toLowerCase();
+    var playlistNameCapital = _.capitalize(playlistName);
+    res.render("add",{playlistName:playlistName,playlistNameCapital:playlistNameCapital});
 });
-
+app.post("/add",function(req,res){
+    var playlistName = (req.body.playlistName).toLowerCase();
+    res.redirect("/add/"+playlistName);
+});
 app.listen(process.env.PORT||3000,function(){
     console.log("Server Is Running");
 });
