@@ -96,7 +96,7 @@ app.post("/add",function(req,res){
     var playlistName = (req.body.playlistName).toLowerCase();
     res.redirect("/add/"+playlistName);
 });
-app.listen(process.env.PORT||9000,function(){
+app.listen(process.env.PORT||3000,function(){
     console.log("Server Is Running bro");
 
     console.log("Server Is Running d");

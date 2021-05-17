@@ -63,7 +63,7 @@ div.playback{
   order: 1;
 }
 div.time{
-  position: relative;
+  
   height: 10%;
     left: 16px;
     top: 2px; 
@@ -474,8 +474,7 @@ figure{
 @media only screen and (max-width: 400px) {
   .ghost{
     font-size: 10px;
-    padding: 2px 5px;
-    margin: 2px;
+
   }
 
 }
