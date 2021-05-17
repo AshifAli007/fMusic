@@ -16,17 +16,9 @@ img.d-inline-block{
     top: 5px;
     margin-left: -70px;
 }
-.btn-outline-light{
-    float: right;
-    position: relative;
-    right: 65px;
-    top: 30px;
-    
-    
-}
 div.mycontainer{
     width: 100vw;
-    height: 50vw;
+    height: 100vh;
     /* background-color: aquamarine; */
 }
 div.mynav{
@@ -38,7 +30,7 @@ div.image{
     width: 100vw;
     height: 80%;
     /* background-color:burlywood;  */
-    padding: 100px;
+    padding: 100px 0;
 }
 div.controls{
     display: inline-block;
@@ -53,35 +45,38 @@ div.duration{
     float: left;
 }
 div.volume{
-    display: inline-block;
+    display: flex;
+    order: 3;
+    align-items: center;
+    margin-left: auto;
 }
 div.controlbuttons{
-    display: inline-block;
+    padding: 0 2% 0 2%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     height: 70%;
     background-color: antiquewhite;
 }
 div.playback{
-  display: inline-block;
+  order: 1;
 }
 div.time{
   position: relative;
+  height: 10%;
     left: 16px;
     top: 2px; 
     font-family: fantasy;
 }
 div.playlists{
-  position: relative;
-  left: 82%;
-}
-.btn{
   position: absolute;
+  right: 5%;
 }
 div.repeat{
   color: black;
-  position: absolute;
-  right: 45px;
   cursor: pointer;
+  order: 4;
 }
 .loop{
   color: grey;
@@ -110,10 +105,7 @@ div.repeat{
   transform: scale(1.2);
 }
 .mutebutton{
-  display: inline-block;
-    position: relative;
-    left: 879px;
-    bottom: 4px;
+
 }
 .mutebutton > img{
   width: 30px;
@@ -122,9 +114,9 @@ div.repeat{
   opacity: 0.5;
 }
 .playbutton{
-    display: inline-block;
-    position: relative;
-    left: 34%;
+    order: 2;
+    position: absolute;
+    margin: auto;
 }
 
 
@@ -169,14 +161,12 @@ form.volume {
   cursor: pointer;
 }
 [type='range'].volume {
+
     box-sizing: border-box;
     width: 30vw;
     height: 0.25em;
     background: none;
     cursor: pointer;
-    position: relative;
-    left: 155%;
-    bottom: 5px;
     transform: 90;
   }
 [type='range']::-webkit-slider-runnable-track, [type='range']::-webkit-slider-thumb, [type='range'] {
@@ -303,14 +293,9 @@ html:not(.js) [type='range'] + output {
 /* css for play and pause button */
 .play {
     border: 0;
-    position: absolute;
-    /* left: 35%; */
-    top: -40px;
     outline: unset;
     background: transparent;
     box-sizing: border-box;
-    width: 0;
-    height: 52px;
     border-color: transparent transparent transparent #202020;
     transition: 100ms all ease;
     cursor: pointer;
@@ -319,7 +304,8 @@ html:not(.js) [type='range'] + output {
   }
   .play.paused {
     border-style: double;
-    border-width: 0px 0 0px 45px;
+    border-width: 0px 37px 0px 37px;
+    height: 55px;
   }
   .play:hover {
     border-color: transparent transparent transparent #404040;
@@ -360,11 +346,8 @@ img.slides{
   /* botstom: 200px; */
 }
 figure{
-  width: 31%;
-  height: 118%;
+  height: 110%;
   margin: auto;
-  position: relative;
-  bottom: 20px;
 }
   
 /* css for overlay content*/
@@ -423,6 +406,81 @@ figure{
     top: 15px;
     right: 35px;
   }
+
+
 }
+
+@media only screen and (max-width: 2160px) {
+
+  figure{
+    max-width: 28% ;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+
+  figure{
+    max-width: 38% ;
+  }
+}
+@media only screen and (max-width: 1310px) {
+
+  figure{
+    max-width: 45% ;
+  }
+}
+@media only screen and (max-width: 1080px) {
+
+  figure{
+    max-width: 55% ;
+  }
+}
+@media only screen and (max-width: 850px) {
+
+  figure{
+    max-width: 75% ;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .ghost{
+    font-size: 15px;
+    padding: 2px 5px;
+    margin: 2px;
+  }
+  /* .play{
+    border-width: 15px 0 15px 23px;
+  } */
+  figure{
+    max-width:75% ;
+    
+  }
+}
+
+@media only screen and (max-width: 630px) {
+
+  figure{
+    max-width: 90% ;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .ghost{
+    font-size: 12px;
+    padding: 2px 5px;
+    margin: 2px;
+  }
+
+}
+@media only screen and (max-width: 400px) {
+  .ghost{
+    font-size: 10px;
+    padding: 2px 5px;
+    margin: 2px;
+  }
+
+}
+
+
+
 
 
