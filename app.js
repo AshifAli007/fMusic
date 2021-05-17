@@ -97,7 +97,11 @@ app.post("/add",function(req,res){
     res.redirect("/add/"+playlistName);
 });
 app.listen(process.env.PORT||3000,function(){
+<<<<<<< HEAD
     console.log("Server Is Running bro");
+=======
+    console.log("Server Is Running d");
+>>>>>>> responsive
 });
 
 
