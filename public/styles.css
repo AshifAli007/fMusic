@@ -20,7 +20,7 @@ img.d-inline-block{
 }
 div.mycontainer{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     /* background-color: aquamarine; */
 }
 div.mynav{
@@ -444,9 +444,9 @@ figure{
     padding: 2px 5px;
     margin: 2px;
   }
-  /* .play{
-    border-width: 15px 0 15px 23px;
-  } */
+  .play{
+    border-width: 25px 0 25px 36px;
+  }
   figure{
     max-width:75% ;
     
