@@ -13,10 +13,12 @@ body{
 
 }
 img.d-inline-block{
-    position: fixed;
-    left: 0px;
-    top: 5px;
-    margin-left: -70px;
+    
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 170px;
+    height: 70px;
 }
 div.mycontainer{
     width: 100%;
@@ -90,8 +92,8 @@ div.repeat{
   display: none;
 }
 .img-hover-zoom {
-  height: 100%; /* Modify this according to your need */
-  overflow: hidden; /* Removing this will break the effects */
+  height: 100%; 
+  overflow: hidden;
 }
 /* Slow-motion Zoom Container */
 .img-hover-zoom--slowmo img {
