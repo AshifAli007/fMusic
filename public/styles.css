@@ -17,8 +17,8 @@ img.d-inline-block{
     position: absolute;
     left: 20px;
     top: 10px;
-    width: 170px;
-    height: 70px;
+    width: auto;
+    height: auto;
 }
 div.mycontainer{
     width: 100%;
